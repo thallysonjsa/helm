@@ -104,7 +104,29 @@ model_deployments:
       class_name: "helm.benchmark.window_services.image_generation.clip_window_service.CLIPWindowService"
 
 
-  # Amazon
+  # Amazon nova models
+
+  - name: amazon/nova-pro-v1:0
+    model_name: amazon/nova-pro-v1:0
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 300000
+    client_spec:
+      class_name: "helm.clients.bedrock_client.BedrockNovaClient"
+
+  - name: amazon/nova-lite-v1:0
+    model_name: amazon/nova-lite-v1:0
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 300000
+    client_spec:
+      class_name: "helm.clients.bedrock_client.BedrockNovaClient"
+
+  - name: amazon/nova-micro-v1:0
+    model_name: amazon/nova-micro-v1:0
+    tokenizer_name: huggingface/gpt2
+    max_sequence_length: 128000
+    client_spec:
+      class_name: "helm.clients.bedrock_client.BedrockNovaClient"
+
   # Titan on Amazon Bedrock
 
   - name: amazon/titan-text-lite-v1
@@ -389,6 +411,15 @@ model_deployments:
     max_sequence_length: 4095
     client_spec:
       class_name: "helm.clients.together_client.TogetherChatClient"
+
+  - name: together/deepseek-v3
+    model_name: deepseek-ai/deepseek-v3
+    tokenizer_name: deepseek-ai/deepseek-v3
+    max_sequence_length: 131072
+    client_spec:
+      class_name: "helm.clients.together_client.TogetherChatClient"
+      args:
+        disable_logprobs: True
 
   # Gooseai
 
@@ -1804,6 +1835,13 @@ model_deployments:
     client_spec:
       class_name: "helm.clients.openai_client.OpenAIClient"
 
+  - name: openai/gpt-4o-2024-11-20
+    model_name: openai/gpt-4o-2024-11-20
+    tokenizer_name: openai/o200k_base
+    max_sequence_length: 128000
+    client_spec:
+      class_name: "helm.clients.openai_client.OpenAIClient"
+
   - name: openai/gpt-4o-mini-2024-07-18
     model_name: openai/gpt-4o-mini-2024-07-18
     tokenizer_name: openai/o200k_base
@@ -1837,6 +1875,13 @@ model_deployments:
       class_name: "helm.clients.openai_client.OpenAIClient"
 
   ## o1 Models
+  - name: openai/o1-2024-12-17
+    model_name: openai/o1-2024-12-17
+    tokenizer_name: openai/cl100k_base
+    max_sequence_length: 128000
+    client_spec:
+      class_name: "helm.clients.openai_client.OpenAIClient"
+
   - name: openai/o1-preview-2024-09-12
     model_name: openai/o1-preview-2024-09-12
     tokenizer_name: openai/cl100k_base
@@ -2718,6 +2763,20 @@ model_deployments:
     max_sequence_length: 8191
     client_spec:
       class_name: "helm.clients.vision_language.qwen_vlm_client.QwenVLMClient"
+
+  - name: huggingface/qwen2-vl-7b-instruct
+    model_name: qwen/qwen2-vl-7b-instruct
+    tokenizer_name: qwen/qwen-vl-chat
+    max_sequence_length: 8191
+    client_spec:
+      class_name: "helm.clients.vision_language.qwen2_vlm_client.Qwen2VLMClient"
+
+  - name: huggingface/qwen2-vl-72b-instruct
+    model_name: qwen/qwen2-vl-72b-instruct
+    tokenizer_name: qwen/qwen-vl-chat
+    max_sequence_length: 8191
+    client_spec:
+      class_name: "helm.clients.vision_language.qwen2_vlm_client.Qwen2VLMClient"
 
   - name: huggingface/qwen-audio-chat
     model_name: qwen/qwen-audio-chat

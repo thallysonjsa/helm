@@ -16,16 +16,17 @@ from helm.benchmark.scenarios.scenario import (
 
 class TweetSentBRScenario(Scenario):
     """
-    TweetSentBR is a corpus of Tweets in Brazilian Portuguese. It was labeled by several annotators following steps
-    stablished on the literature for improving reliability on the task of Sentiment Analysis. Each Tweet was annotated
-    in one of the three following classes:
+    TweetSentBR is a corpus of Tweets in Brazilian Portuguese. It was labeled by several
+    annotators following steps stablished on the literature for improving reliability on
+    the task of Sentiment Analysis. Each Tweet was annotated in one of the three following classes:
 
     Positive - tweets where a user meant a positive reaction or evaluation about the main topic on the post;
     Negative - tweets where a user meant a negative reaction or evaluation about the main topic on the post;
-    Neutral - tweets not belonging to any of the last classes, usually not making a point, out of topic, irrelevant, confusing or containing only objective data.
+    Neutral - tweets not belonging to any of the last classes, usually not making a point, out of topic,
+    irrelevant, confusing or containing only objective data.
 
-    This dataset is a subset of the tweetSentBR, it contains only 75 samples from the training set and all 2.000+ instances of the test set.
-    This is meant for evaluating language models in a few-shot setting.
+    This dataset is a subset of the tweetSentBR, it contains only 75 samples from the training set
+    and all 2.000+ instances of the test set. This is meant for evaluating language models in a few-shot setting.
     """
 
     name = "simple_classification"
@@ -34,11 +35,7 @@ class TweetSentBRScenario(Scenario):
 
     def process_dataset(self, dataset: Any, split: str) -> List[Instance]:
         instances: List[Instance] = []
-        label_names = {
-            "Positive": "Positivo", 
-            "Negative": "Negativo", 
-            "Neutral": "Neutro"
-        }
+        label_names = {"Positive": "Positivo", "Negative": "Negativo", "Neutral": "Neutro"}
         for example in dataset[split]:
             input = Input(text=example["sentence"])
             # NOTE: For classification scenarios, the reference outputs should be the same

@@ -219,7 +219,33 @@ models:
     tags: [TEXT_TO_IMAGE_MODEL_TAG]
 
 
-  # Amazon
+  # Amazon Nova models
+  # References for Amazon Nova models:
+  # https://aws.amazon.com/ai/generative-ai/nova/
+  - name: amazon/nova-pro-v1:0
+    display_name: Amazon Nova Pro
+    description: Amazon Nova Pro Model
+    creator_organization_name: Amazon
+    access: limited
+    release_date: 2024-12-03
+    tags: [NOVA_MODEL_TAG, TEXT_MODEL_TAG, LIMITED_FUNCTIONALITY_TEXT_MODEL_TAG]
+
+  - name: amazon/nova-lite-v1:0
+    display_name: Amazon Nova Lite
+    description: Amazon Nova Lite Model
+    creator_organization_name: Amazon
+    access: limited
+    release_date: 2024-12-03
+    tags: [NOVA_MODEL_TAG, TEXT_MODEL_TAG, LIMITED_FUNCTIONALITY_TEXT_MODEL_TAG]
+
+  - name: amazon/nova-micro-v1:0
+    display_name: Amazon Nova Micro
+    description: Amazon Nova Micro Model
+    creator_organization_name: Amazon
+    access: limited
+    release_date: 2024-12-03
+    tags: [NOVA_MODEL_TAG, TEXT_MODEL_TAG, LIMITED_FUNCTIONALITY_TEXT_MODEL_TAG]
+
   # Titan Models
   # References for Amazon Titan models:
   # - https://aws.amazon.com/bedrock/titan/
@@ -762,6 +788,15 @@ models:
     release_date: 2024-01-05
     tags: [TEXT_MODEL_TAG, LIMITED_FUNCTIONALITY_TEXT_MODEL_TAG, INSTRUCTION_FOLLOWING_MODEL_TAG]
 
+  - name: deepseek-ai/deepseek-v3
+    display_name: DeepSeek v3
+    description: DeepSeek v3 a Mixture-of-Experts (MoE) language model with 671B total parameters with 37B activated for each token. It adopts Multi-head Latent Attention (MLA) and DeepSeekMoE architectures. ([paper](https://github.com/deepseek-ai/DeepSeek-V3/blob/main/DeepSeek_V3.pdf))
+    creator_organization_name: DeepSeek
+    access: open
+    # NOTE: The total size of DeepSeek-V3 models on HuggingFace is 685B, which includes 671B of the Main Model weights and 14B of the Multi-Token Prediction (MTP) Module weights.
+    num_parameters: 685000000000
+    release_date: 2024-12-24
+    tags: [TEXT_MODEL_TAG, LIMITED_FUNCTIONALITY_TEXT_MODEL_TAG, INSTRUCTION_FOLLOWING_MODEL_TAG]
 
   # EleutherAI
   - name: eleutherai/gpt-j-6b # Served by GooseAi, HuggingFace and Together.
@@ -2483,6 +2518,14 @@ models:
     release_date: 2024-08-06
     tags: [TEXT_MODEL_TAG, VISION_LANGUAGE_MODEL_TAG, OPENAI_CHATGPT_MODEL_TAG, LIMITED_FUNCTIONALITY_TEXT_MODEL_TAG, INSTRUCTION_FOLLOWING_MODEL_TAG]
 
+  - name: openai/gpt-4o-2024-11-20
+    display_name: GPT-4o (2024-11-20)
+    description: GPT-4o (2024-11-20) is a large multimodal model that accepts as input any combination of text, audio, and image and generates any combination of text, audio, and image outputs. ([blog](https://openai.com/index/introducing-structured-outputs-in-the-api/))
+    creator_organization_name: OpenAI
+    access: limited
+    release_date: 2024-11-20
+    tags: [TEXT_MODEL_TAG, VISION_LANGUAGE_MODEL_TAG, OPENAI_CHATGPT_MODEL_TAG, LIMITED_FUNCTIONALITY_TEXT_MODEL_TAG, INSTRUCTION_FOLLOWING_MODEL_TAG]
+
   - name: openai/gpt-4o-mini-2024-07-18
     display_name: GPT-4o mini (2024-07-18)
     description: GPT-4o mini (2024-07-18) is a multimodal model with a context window of 128K tokens and improved handling of non-English text. ([blog](https://openai.com/index/gpt-4o-mini-advancing-cost-efficient-intelligence/))
@@ -2519,6 +2562,14 @@ models:
     tags: [VISION_LANGUAGE_MODEL_TAG, OPENAI_CHATGPT_MODEL_TAG, FULL_FUNCTIONALITY_VLM_TAG]
 
   ## o1 Models
+  - name: openai/o1-2024-12-17
+    display_name: o1 (2024-12-17)
+    description: o1 is a new large language model trained with reinforcement learning to perform complex reasoning. ([model card](https://openai.com/index/openai-o1-system-card/), [blog post](https://openai.com/index/learning-to-reason-with-llms/))
+    creator_organization_name: OpenAI
+    access: limited
+    release_date: 2024-12-17
+    tags: [TEXT_MODEL_TAG, VISION_LANGUAGE_MODEL_TAG, LIMITED_FUNCTIONALITY_TEXT_MODEL_TAG, INSTRUCTION_FOLLOWING_MODEL_TAG]
+
   - name: openai/o1-preview-2024-09-12
     display_name: o1-preview (2024-09-12)
     description: o1-preview is a language model trained with reinforcement learning to perform complex reasoning that can produce a long internal chain of thought before responding to the user. ([model card](https://openai.com/index/openai-o1-system-card/), [blog post](https://openai.com/index/learning-to-reason-with-llms/))
@@ -2809,6 +2860,22 @@ models:
     creator_organization_name: Alibaba Cloud
     access: open
     release_date: 2023-08-24
+    tags: [VISION_LANGUAGE_MODEL_TAG, FULL_FUNCTIONALITY_VLM_TAG]
+
+  - name: qwen/qwen2-vl-7b-instruct
+    display_name: Qwen2-VL Instruct (7B)
+    description: The second generation of Qwen2-VL models ([paper](https://arxiv.org/abs/2409.12191)).
+    creator_organization_name: Alibaba Group
+    access: open
+    release_date: 2024-08-29
+    tags: [VISION_LANGUAGE_MODEL_TAG, FULL_FUNCTIONALITY_VLM_TAG]
+
+  - name: qwen/qwen2-vl-72b-instruct
+    display_name: Qwen2-VL Instruct (72B)
+    description: The second generation of Qwen2-VL models ([paper](https://arxiv.org/abs/2409.12191)).
+    creator_organization_name: Alibaba Group
+    access: open
+    release_date: 2024-08-29
     tags: [VISION_LANGUAGE_MODEL_TAG, FULL_FUNCTIONALITY_VLM_TAG]
 
   - name: qwen/qwen-audio-chat
